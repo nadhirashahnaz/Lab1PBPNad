@@ -1,25 +1,69 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
+
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <ul class="nav nav-pills">
+
+        <li class=""nav-item>
+            <a class="nav-link" aria-current="page" href="#">{{nama}}</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="/wishlist/xml">XML</a>
+        </li>
+        <li class=""nav-item>
+            <a class="nav-link" aria-current="page" href="#"> </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="/wishlist/json">JSON</a>
+        </li>
+
+        </li>
+        <li class=""nav-item>
+            <a class="nav-link" aria-current="page" href="#"> </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'wishlist:logout' %}">Logout</a>
+        </li>
+
+    </div>
+  </nav>
+<br>
+<br> 
+<h1 style="text-align: center;color:#d7005d;background-color: pink;">My Main Page</h1>
+<br>
+<br> 
 <h5>Nama: </h5>
 <b>{{nama}}</b>
-
-<table>
-    <tr>
-    <th>Nama Barang</th>
-    <th>Harga Barang</th>
-    <th>Deskripsi</th>
-    </tr>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for barang in list_barang %}
-        <tr>
-            <th>{{barang.nama_barang}}</th>
-            <th>{{barang.harga_barang}}</th>
-            <th>{{barang.deskripsi}}</th>
+<br>
+<br>
+<div class="mx-auto" style="width: 750px;">
+    <table border="2" cellpadding="8">
+        <tr bgcolor="#FFC0CB">
+        <th style="text-align: center;color:#d7005d">Nama Barang</th>
+        <th style="text-align: center;color:#d7005d">Harga Barang</th>
+        <th style="text-align: center;color:#d7005d">Deskripsi</th>
         </tr>
-    {% endfor %}
-</table>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+        {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+        {% for barang in list_barang %}
+            <tr>
+                <th style="text-align: center;color:hotpink">{{barang.nama_barang}}</th>
+                <th style="text-align: center;color:hotpink">{{barang.harga_barang}}</th>
+                <th style="text-align: center;color:hotpink">{{barang.deskripsi}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<br>
+<br>
+<br>
+<h7>Sesi terakhir login: {{ last_login }}</h7>
+
 
 {% endblock content %}
